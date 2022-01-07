@@ -21,9 +21,10 @@ data "aws_ami" "amiDatasource" {
 }
 
 resource "aws_instance" "myEc2" {
-  instance_type = "t2.micro"
+  instance_type = "t2.nano"
   ami           = data.aws_ami.amiDatasource.id
   tags = {
     Name = "myEc2Terraformed"
+    Environment = "DEV"
   }
 }
