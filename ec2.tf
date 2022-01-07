@@ -1,3 +1,15 @@
+terraform {
+  backend "remote" {
+    hostname = "app.terraform.io"
+    organization = "laurent-raharison"
+
+    workspaces {
+      name = "terraform-demo"
+    }
+  }
+}
+
+
 data "aws_ami" "amiDatasource" {
   most_recent = true
   owners      = ["amazon"]
